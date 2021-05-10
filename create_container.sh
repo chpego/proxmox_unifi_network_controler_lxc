@@ -65,10 +65,7 @@ TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
 # Download setup script
-#wget -qL https://github.com/chpego/proxmox_unifi_network_controler_lxc/raw/main/setup.sh
-
-# Download setup script
-wget -qL https://raw.githubusercontent.com/chpego/proxmox_unifi_network_controler_lxc/main/setup.sh
+wget -qL https://github.com/chpego/proxmox_unifi_network_controler_lxc/raw/main/setup.sh
 
 # Detect modules and automatically load at boot
 load_module aufs
