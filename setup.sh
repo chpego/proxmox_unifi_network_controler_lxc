@@ -39,7 +39,7 @@ apt-get install ca-certificates wget -y >/dev/null
 msg "Installing Unifi..."
 rm -rf unifi-latest.sh >/dev/null
 wget "https://get.glennr.nl/unifi/install/install_latest/unifi-latest.sh"
-bash unifi-latest.sh --skip
+bash unifi-latest.sh --skip --local-controller
 
 # Customize container
 msg "Customizing container..."
