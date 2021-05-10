@@ -1,6 +1,6 @@
 ## Unifi Network Controller in Proxmox LXC container
 
-This is a fork of project https://github.com/whiskerz007/proxmox_portainer_lxc
+This is a fork of project [whiskerz007](https://github.com/whiskerz007/proxmox_portainer_lxc) and use the this of [Glenn](https://community.ui.com/questions/ccbc7530-dd61-40a7-82ec-22b17f027776)
 
 Many benefits can be gained by using a LXC container compared to a VM. The resources needed to run a LXC container are less than running a VM. Modifing the resouces assigned to the LXC container can be done without having to reboot the container. Packages that are installed to not interfere with the Proxmox OS.
 Usage
