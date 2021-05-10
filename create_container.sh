@@ -65,7 +65,7 @@ TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
 # Download setup script
-wget -qL https://github.com/chpego/proxmox_unifi_network_controler_lxc/raw/master/setup.sh
+#wget -qL https://github.com/chpego/proxmox_unifi_network_controler_lxc/raw/master/setup.sh
 
 # Detect modules and automatically load at boot
 load_module aufs
@@ -131,6 +131,7 @@ ROOTFS=${STORAGE}:${DISK_REF-}${DISK}
 # Create variables for container memory
 # https://help.ui.com/hc/en-us/articles/360012282453-UniFi-Set-up-a-UniFi-Network-Controller#h_01EKX52R32QMPRJMXXYWSWJF7W
 MEMORY=2048
+SWAP_MEMORY=$MEMORY
 
 # Create LXC
 msg "Creating LXC container..."
@@ -149,7 +150,7 @@ HOSTNAME=UnifiNetworkController
 TEMPLATE_STRING="local:vztmpl/${TEMPLATE}"
 pct create $CTID $TEMPLATE_STRING -arch $ARCH -features nesting=1 \
   -hostname $HOSTNAME -net0 name=eth0,bridge=vmbr0,ip=dhcp -onboot 1 \
-  -ostype $OSTYPE -rootfs $ROOTFS,size=$DISK_SIZE -memory $MEMORY -storage $STORAGE >/dev/null
+  -ostype $OSTYPE -rootfs $ROOTFS,size=$DISK_SIZE -swap $SWAP_MEMORY -memory $MEMORY -storage $STORAGE >/dev/null
 
 # Set container timezone to match host
 MOUNT=$(pct mount $CTID | cut -d"'" -f 2)
