@@ -68,7 +68,6 @@ pushd $TEMP_DIR >/dev/null
 wget -qL https://github.com/chpego/proxmox_unifi_network_controler_lxc/raw/main/setup.sh
 
 # Detect modules and automatically load at boot
-load_module aufs
 load_module overlay
 
 # Select storage location
